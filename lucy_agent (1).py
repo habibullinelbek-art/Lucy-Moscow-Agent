@@ -11,8 +11,8 @@ import json
 import re
 import os
 
-ANTHROPIC_API_KEY   = os.environ["ANTHROPIC_API_KEY"]
-TELEGRAM_BOT_TOKEN  = os.environ["TELEGRAM_BOT_TOKEN"]
+ANTHROPIC_API_KEY   = os.environ["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"]
+TELEGRAM_BOT_TOKEN  = os.environ["8788719924:AAEPcAwCDIwT3gbaItq29b_cAV2gDrtGktI"]
 TELEGRAM_CHANNEL_ID = os.environ.get("TELEGRAM_CHANNEL_ID", "@Lucy_Moscow_events")
 
 SYSTEM_PROMPT = """Ты — Люся, саркастичный и ироничный гид по культурной жизни Москвы.
