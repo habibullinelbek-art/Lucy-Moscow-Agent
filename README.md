@@ -1,3 +1,0 @@
-anthropic>=0.40.0
-requests>=2.31.0
-schedule>=1.2.0
