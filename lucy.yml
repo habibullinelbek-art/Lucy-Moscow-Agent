@@ -1,0 +1,34 @@
+name: Люся — афиша Москвы 🗺️
+
+on:
+  # Каждый четверг в 10:00 по московскому времени (07:00 UTC)
+  schedule:
+    - cron: "0 7 * * 4"
+
+  # Ручной запуск для теста — кнопка Run workflow в GitHub
+  workflow_dispatch:
+
+jobs:
+  post-events:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout репозитория
+        uses: actions/checkout@v4
+
+      - name: Установка Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Установка зависимостей
+        run: pip install -r requirements.txt
+
+      - name: Запуск Люси 🗺️
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+        run: python lucy_agent.py
